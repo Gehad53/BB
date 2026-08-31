@@ -1,0 +1,685 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+
+  font-family: Arial, sans-serif;
+
+  color: white;
+
+  background:
+    radial-gradient(
+      circle at 50% 45%,
+      #242016 0%,
+      #0d0e12 42%,
+      #050609 100%
+    );
+}
+
+
+body::before {
+
+  content: "";
+
+  position: fixed;
+
+  inset: 0;
+
+  pointer-events: none;
+
+  background-image:
+    radial-gradient(
+      circle,
+      rgba(255,210,80,.9) 1px,
+      transparent 1.5px
+    ),
+    radial-gradient(
+      circle,
+      rgba(255,255,255,.7) 1px,
+      transparent 1.5px
+    );
+
+  background-size:
+    90px 90px,
+    130px 130px;
+
+  background-position:
+    10px 20px,
+    40px 70px;
+
+  opacity: .35;
+}
+
+
+.page {
+
+  min-height: 100vh;
+
+  display: grid;
+
+  place-items: center;
+
+  padding: 24px;
+}
+
+
+.screen {
+
+  width: min(92vw, 700px);
+
+  min-height: 620px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  position: relative;
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+
+.hint {
+
+  color: #ffd52e;
+
+  font-size:
+    clamp(1.3rem, 4vw, 2rem);
+
+  margin-bottom: 35px;
+
+  animation:
+    float 2s ease-in-out infinite;
+}
+
+
+.instruction {
+
+  margin-top: 28px;
+
+  color: #ddd;
+
+  font-size: 1.05rem;
+}
+
+
+/* Helmet Button */
+
+.helmet-button {
+
+  border: 0;
+
+  background: transparent;
+
+  cursor: pointer;
+
+  padding: 35px;
+
+  transition:
+    transform .2s ease;
+
+  filter:
+    drop-shadow(
+      0 25px 25px
+      rgba(255, 190, 0, .22)
+    );
+}
+
+
+.helmet-button:hover {
+
+  transform:
+    scale(1.06)
+    rotate(-2deg);
+}
+
+
+.helmet-button:active {
+
+  transform:
+    scale(.94);
+}
+
+
+/* Helmet */
+
+.helmet {
+
+  width: 260px;
+
+  height: 190px;
+
+  position: relative;
+}
+
+
+.helmet-top {
+
+  position: absolute;
+
+  width: 215px;
+
+  height: 150px;
+
+  left: 22px;
+
+  top: 10px;
+
+  border-radius:
+    120px 120px 45px 45px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #fff04a,
+      #ffc400 55%,
+      #df9200
+    );
+
+  box-shadow:
+
+    inset
+    15px 12px 25px
+    rgba(255,255,255,.38),
+
+    inset
+    -15px -15px 25px
+    rgba(130,75,0,.22);
+}
+
+
+.helmet-brim {
+
+  position: absolute;
+
+  left: 0;
+
+  bottom: 15px;
+
+  width: 260px;
+
+  height: 48px;
+
+  border-radius:
+    50% 50% 45% 45%;
+
+  background:
+    linear-gradient(
+      #ffd928,
+      #e8a500
+    );
+
+  box-shadow:
+    inset
+    0 8px 12px
+    rgba(255,255,255,.3);
+}
+
+
+.helmet-ridge {
+
+  position: absolute;
+
+  top: 35px;
+
+  height: 105px;
+
+  width: 25px;
+
+  border-radius: 50%;
+
+  background:
+    rgba(190,125,0,.2);
+}
+
+
+.ridge1 {
+
+  left: 82px;
+
+  transform:
+    rotate(-10deg);
+}
+
+
+.ridge2 {
+
+  left: 117px;
+}
+
+
+.ridge3 {
+
+  left: 152px;
+
+  transform:
+    rotate(10deg);
+}
+
+
+/* Helmet Disappear Animation */
+
+.helmet-button.disappear {
+
+  animation:
+    vanish .9s forwards;
+}
+
+
+@keyframes vanish {
+
+  0% {
+
+    transform:
+      scale(1)
+      rotate(0);
+
+    opacity: 1;
+  }
+
+
+  45% {
+
+    transform:
+      scale(1.12)
+      rotate(8deg);
+
+    opacity: .85;
+  }
+
+
+  100% {
+
+    transform:
+      scale(.1)
+      rotate(35deg)
+      translateY(-60px);
+
+    opacity: 0;
+
+    filter: blur(8px);
+  }
+}
+
+
+/* Birthday Card */
+
+.birthday-card {
+
+  position: relative;
+
+  width: min(92vw, 620px);
+
+  padding:
+    40px 25px 35px;
+
+  border:
+    1px solid
+    rgba(255,215,70,.18);
+
+  border-radius: 28px;
+
+  background:
+    rgba(15,15,18,.72);
+
+  backdrop-filter:
+    blur(8px);
+
+  box-shadow:
+    0 0 80px
+    rgba(255,190,0,.08);
+}
+
+
+/* Sparkles */
+
+.sparkles {
+
+  color: #ffd83d;
+
+  letter-spacing: 18px;
+
+  font-size: 1.4rem;
+
+  margin-bottom: 12px;
+
+  animation:
+    sparkle 1.5s infinite;
+}
+
+
+/* Happy Birthday */
+
+h1 {
+
+  font-size:
+    clamp(3rem, 10vw, 5.5rem);
+
+  line-height: .95;
+
+  font-weight: 500;
+
+  font-family: cursive;
+
+  color: #ffd447;
+
+  text-shadow:
+
+    0 0 12px
+    rgba(255,200,40,.55),
+
+    0 0 35px
+    rgba(255,160,0,.25);
+}
+
+
+/* Birthday Photo */
+
+.birthday-photo {
+
+  width: 220px;
+
+  height: 220px;
+
+  object-fit: cover;
+
+  display: block;
+
+  margin:
+    25px auto 10px;
+
+  border-radius: 20px;
+
+  border:
+    3px solid
+    rgba(255,212,71,.7);
+
+  box-shadow:
+    0 10px 30px
+    rgba(0,0,0,.4);
+
+  animation:
+    photoAppear 1s ease;
+}
+
+
+@keyframes photoAppear {
+
+  from {
+
+    opacity: 0;
+
+    transform:
+      scale(.7)
+      translateY(20px);
+  }
+
+  to {
+
+    opacity: 1;
+
+    transform:
+      scale(1)
+      translateY(0);
+  }
+}
+
+
+/* Heart */
+
+.heart {
+
+  color: #ff6680;
+
+  font-size: 3rem;
+
+  margin: 8px 0;
+}
+
+
+/* Message */
+
+.message {
+
+  color: #eee;
+
+  max-width: 480px;
+
+  margin:
+    10px auto 22px;
+
+  font-size: 1.05rem;
+
+  line-height: 1.6;
+}
+
+
+/* Cake */
+
+.cake {
+
+  width: 210px;
+
+  height: 150px;
+
+  margin:
+    10px auto 25px;
+
+  position: relative;
+}
+
+
+.cake-body {
+
+  position: absolute;
+
+  left: 15px;
+
+  bottom: 5px;
+
+  width: 180px;
+
+  height: 90px;
+
+  border-radius:
+    12px 12px 25px 25px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #e8d7b8,
+      #fff5db,
+      #d7c29f
+    );
+
+  box-shadow:
+    0 10px 20px
+    rgba(0,0,0,.35);
+}
+
+
+.icing {
+
+  position: absolute;
+
+  z-index: 2;
+
+  left: 10px;
+
+  top: 50px;
+
+  width: 190px;
+
+  height: 45px;
+
+  border-radius:
+    50% 50% 18px 18px;
+
+  background:
+    linear-gradient(
+      #fff7e5,
+      #e7d6b6
+    );
+}
+
+
+.candles {
+
+  position: absolute;
+
+  z-index: 3;
+
+  top: 5px;
+
+  left: 25px;
+
+  width: 165px;
+
+  display: flex;
+
+  justify-content:
+    space-around;
+
+  font-size: 1.7rem;
+}
+
+
+/* Again Button */
+
+.again {
+
+  border:
+    1px solid
+    rgba(255,210,60,.5);
+
+  background: transparent;
+
+  color: #ffd447;
+
+  border-radius: 30px;
+
+  padding:
+    10px 22px;
+
+  cursor: pointer;
+
+  font-size: .95rem;
+}
+
+
+.again:hover {
+
+  background:
+    rgba(255,210,60,.1);
+}
+
+
+/* Confetti */
+
+.confetti-piece {
+
+  position: fixed;
+
+  top: -20px;
+
+  width: 9px;
+
+  height: 16px;
+
+  animation:
+    fall linear forwards;
+
+  z-index: 10;
+}
+
+
+/* Animations */
+
+@keyframes float {
+
+  0%, 100% {
+
+    transform:
+      translateY(0);
+  }
+
+  50% {
+
+    transform:
+      translateY(-7px);
+  }
+}
+
+
+@keyframes sparkle {
+
+  50% {
+
+    opacity: .45;
+
+    transform:
+      scale(1.08);
+  }
+}
+
+
+@keyframes fall {
+
+  to {
+
+    transform:
+      translateY(110vh)
+      rotate(720deg);
+
+    opacity: 0;
+  }
+}
+
+
+/* Mobile */
+
+@media (max-width: 500px) {
+
+  .screen {
+
+    min-height: 560px;
+  }
+
+
+  .helmet {
+
+    transform:
+      scale(.82);
+  }
+
+
+  .birthday-card {
+
+    padding:
+      30px 18px 25px;
+  }
+
+
+  .birthday-photo {
+
+    width: 180px;
+
+    height: 180px;
+  }
+
+}
